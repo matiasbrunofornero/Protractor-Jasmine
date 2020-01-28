@@ -1,3 +1,7 @@
 module.exports = class BasePage {
-	constructor() {}
+	constructor() {
+        this.despegarDesktopLogo = element(by.id('siteLogo'))
+        this.navBarSectionList = element(by.id('PageNavBarSectionList'))
+        this.navBarUserOptions = element(by.id('PageNavBarUserOptions'))
+	}
 }

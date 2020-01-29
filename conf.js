@@ -7,7 +7,7 @@ exports.config = {
     // this command starts a standalone server to avoid starting a dedicated server on an extra terminal
     directConnect: true,
     // run all the specs under Spec folder
-    specs: ['./specs/homePage/homePage.spec.js'],
+    specs: ['./specs/homePage.spec.js'],
 
     onPrepare: () => {
         // Browser config

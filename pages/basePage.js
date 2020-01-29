@@ -3,5 +3,6 @@ module.exports = class BasePage {
                 this.turismoCityDesktopLogo = element(by.id('siteLogo'))
                 this.navBarSectionList = element(by.id('PageNavBarSectionList'))
                 this.navBarUserOptions = element(by.id('PageNavBarUserOptions'))
+                this.userButton = element(by.id('user-status'))
         }
 }

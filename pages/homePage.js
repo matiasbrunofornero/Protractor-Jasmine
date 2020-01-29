@@ -4,19 +4,20 @@ class homePage extends basePage {
 	constructor() {
 		super();
 
-		this.headerListProducts = element(by.className('header-list-products'));
-		this.headerElements = this.headerListProducts.all(by.className('header-product-item'));
-		this.defaultSearchBox = element(by.id('searchbox-sbox-box-packages'));
+		this.headerListProducts = element(by.id('PageNavBarSectionList'));
+		this.headerElements = this.headerListProducts.all(by.className('HeaderLink'));
+		this.outboundInput = element(by.css('.e2e-outbound-input .tc-placeholder'))
+		this.inboundInput = element(by.css('.e2e-inbound-input .tc-placeholder'))
 	}
 
 	getIconLink(index) {
-		var iconElementClassname = "shifu-3-button-circle";
-		return this.headerElements.get(index).element(by.className(iconElementClassname)).getAttribute('href');
+		expect(homePage.headerElements.get(currentElement).getText()).toContain(data.text)
+		return this.headerElements.get(index).element(by.tagName('a')).getAttribute('href');
 	}
 
 	getIconClassName(index) {
-		var tag = "i";
-		return this.headerElements.get(index).element(by.tagName(tag)).getAttribute('class');
+		var a = this.headerElements.get(index).element(by.tagName('a'))
+		return a.element(by.tagName('i')).getAttribute('class');
 	}
 }
 module.exports = new homePage();

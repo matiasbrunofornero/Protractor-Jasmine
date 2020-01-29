@@ -18,8 +18,7 @@ describe("Homepage Test Suite", function () {
         })
     })
 
-    it("Default Search Box Verification", function () {
-        expect(homePage.defaultSearchBox.getText()).toContain(homePageData.defaultSearchBoxTitle)
-        expect(homePage.defaultSearchBox.isDisplayed()).toBe(true, 'Default Search box: ' + homePageData.defaultSearchBoxTitle + ' not displayed')
+    it("Login Button Verification", function () {
+        expect(homePage.userButton.getText()).toContain(homePageData.loginButtonText)
     })
 })

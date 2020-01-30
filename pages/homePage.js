@@ -2,10 +2,10 @@ const basePage = require('./basePage')
 
 class homePage extends basePage {
 	constructor() {
-		super();
+		super()
 
-		this.headerListProducts = element(by.id('PageNavBarSectionList'));
-		this.headerElements = this.headerListProducts.all(by.className('HeaderLink'));
+		this.headerListProducts = element(by.id('PageNavBarSectionList'))
+		this.headerElements = this.headerListProducts.all(by.css('.HeaderLink'))
 		this.outboundInput = element(by.css('.e2e-outbound-input .tc-placeholder'))
 		this.inboundInput = element(by.css('.e2e-inbound-input .tc-placeholder'))
 	}

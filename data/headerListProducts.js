@@ -6,5 +6,5 @@ module.exports = {
 	'Micros': { order: 4, text: 'Micros', url: 'https://www.turismocity.com.ar/micros', iconClassName: 'icon-micros' },
 	'Autos': { order: 5, text: 'Autos', url: 'https://www.turismocity.com.ar/autos', iconClassName: 'icon-autos' },
     'Promociones': { order: 6, text: 'Promociones', url: 'https://www.turismocity.com.ar/promociones_aereas', iconClassName: 'icon-promociones' },
-	'Seguros de Viajes': { order: 7, text: 'Seguros de Viajes', url: 'https://www.universal-assistance.com/ar-es/turismocity', iconClassName: 'icon-assist' },
+	'Seguro de viajes': { order: 7, text: 'Seguro de viajes', url: 'https://www.universal-assistance.com/ar-es/turismocity', iconClassName: 'icon-assist' },
 }

@@ -1,24 +1,20 @@
-var using = require('jasmine-data-provider');
-var objectDataProvider = require('../../data/headerListProducts');
-var homePageData = require('../../data/homePageData.json');
-var homePage = require('../../pages/homePage');
+// var using = require('jasmine-data-provider');
+// var objectDataProvider = require('../../data/headerListProducts');
+// var homePageData = require('../../data/homePageData.json');
+var homePage = require('../pages/homePage');
 
 describe("Homepage Test Suite", function () {
 
-    it("Page Logo Visibility", function () {
-        expect(homePage.turismoCityDesktopLogo.isDisplayed()).toBe(true, 'Page logo is not displayed')
+    it("Search functionality", function () {
+        var text = 'Buscar productos, marcas y más…'
+        expect(homePage.searchBox.isDisplayed()).toBe(true)
+        expect(homePage.searchBox.getAttribute('placeholder')).toEqual(text);
+
+        homePage.setSearch(text)
+        homePage.clickSearch()
     })
 
-    using(objectDataProvider, function (data, description) {
-        it(description + "icon verification", function () {
-            var currentElement = data.order - 1
-            expect(homePage.getIconLink(currentElement)).toContain(data.url);
-            expect(homePage.headerElements.get(currentElement).getText()).toContain(data.text)
-            expect(homePage.getIconClassName(currentElement)).toContain(data.iconClassName)
-        })
-    })
-
-    it("Login Button Verification", function () {
-        expect(homePage.userButton.getText()).toContain(homePageData.loginButtonText)
+    it("Ingresa functionality", function () {
+        homePage.clickIngresaBtn()
     })
 })

@@ -4,7 +4,6 @@
 var homePage = require('../pages/homePage');
 var ingresaPage = require('../pages/ingresaPage');
 
-
 describe("Homepage Test Suite", function () {
 
     it("Search functionality", function () {

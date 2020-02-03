@@ -14,12 +14,19 @@ module.exports = class BasePage {
         }
 
         clickIngresaBtn() {
-                this.ingresaBtn.click()
-                return new ingresaPage();
+                return this.ingresaBtn.click()
         }
 
         setSearch(search) {
                 return this.searchBox.sendKeys(search)
+        }
+
+        getSearch() {
+                return this.searchBox.getText()
+        }
+
+        clearSearch() {
+                return this.searchBox.clear()
         }
 
         clickSearch() {

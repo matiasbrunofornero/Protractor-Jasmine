@@ -25,4 +25,4 @@ class ingresaPage extends basePage {
     }
 }
 
-module.exports = new ingresaPage();
+module.exports = new ingresaPage()

@@ -1,6 +1,7 @@
-var using = require('jasmine-data-provider');
-var objectDataProvider = require('../data/productsList');
-// var homePageData = require('../../data/homePageData.json');
+var using = require('jasmine-data-provider')
+var objectDataProvider = require('../data/productsList')
+var mlData = require('../data/homePageData.json')
+
 var homePage = require('../pages/homePage')
 var ingresaPage = require('../pages/ingresaPage')
 var resultsPage = require('../pages/resultsPage')
@@ -9,10 +10,10 @@ describe("Homepage Test Suite", function () {
 
     using(objectDataProvider, function (data, description) {
         it("Search functionality: " + description, function () {
-            const text = 'Buscar productos, marcas y más…'
+            const placeholder = mlData.searchboxPlaceholder
 
             expect(homePage.searchBox.isDisplayed()).toBe(true)
-            expect(homePage.searchBox.getAttribute('placeholder')).toEqual(text);
+            expect(homePage.searchBox.getAttribute('placeholder')).toEqual(placeholder);
             homePage.setSearch(data.text)
             homePage.clickSearch()
 

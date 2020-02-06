@@ -8,9 +8,26 @@ module.exports = class BasePage {
                 this.searchBtn = element(by.className('nav-icon-search'))
                 this.appDownloadLink = element(by.id('footer-applink'))
 
-                // this.notificacionBar = element(by.className('notification-fixed-box'))
-                // this.turismoCityDesktopLogo = element(by.id('siteLogo'))
-                // this.vuelosIcon = element(by.css('a[title="Vuelos"]'))
+                this.categoriasLink = element(by.className('nav-menu-categories-link'))
+                this.categoriasMenu = element(by.className('nav-categs'))
+
+                this.inmueblesLink = element(by.xpath(`//a[text()='Inmuebles']`)) 
+        }
+
+        waitToPresenceOf(element) {
+                var until = protractor.ExpectedConditions
+                browser.wait(until.presenceOf(element), 5000)
+        }
+
+        clickCategoriasLink() {
+                this.waitToPresenceOf(this.categoriasLink)
+                return this.categoriasLink.click()
+        }
+
+        goToCategory(cat) {
+                var el = element(by.xpath(`//a[text()='${cat}']`))
+                this.waitToPresenceOf(el)
+                return el.click()
         }
 
         clickIngresaBtn() {

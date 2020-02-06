@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites disabled="0" errors="0" failures="0" tests="6" time="13.515">
- <testsuite name="Homepage Test Suite" timestamp="2020-02-03T15:16:15" hostname="localhost" time="13.515" errors="0" tests="6" skipped="1" disabled="0" failures="0">
-  <testcase classname="Homepage Test Suite" name="Search functionality: iPhone XR" time="5.38" />
-  <testcase classname="Homepage Test Suite" name="Search functionality: Samsung A50" time="2.163" />
-  <testcase classname="Homepage Test Suite" name="Search functionality: Xiaomi 7A" time="2.094" />
-  <testcase classname="Homepage Test Suite" name="Search functionality: Huawei P30" time="1.939" />
-  <testcase classname="Homepage Test Suite" name="Search functionality: Moto G8 Plus" time="1.934" />
+<testsuites disabled="0" errors="0" failures="0" tests="7" time="8.684">
+ <testsuite name="Homepage Test Suite" timestamp="2020-02-06T14:42:32" hostname="localhost" time="8.684" errors="0" tests="7" skipped="6" disabled="0" failures="0">
+  <testcase classname="Homepage Test Suite" name="Search functionality: iPhone XR" time="0.005">
+   <skipped message="Temporarily disabled with xit" />
+  </testcase>
+  <testcase classname="Homepage Test Suite" name="Search functionality: Samsung A50" time="0.001">
+   <skipped message="Temporarily disabled with xit" />
+  </testcase>
+  <testcase classname="Homepage Test Suite" name="Search functionality: Xiaomi 7A" time="0">
+   <skipped message="Temporarily disabled with xit" />
+  </testcase>
+  <testcase classname="Homepage Test Suite" name="Search functionality: Huawei P30" time="0.001">
+   <skipped message="Temporarily disabled with xit" />
+  </testcase>
+  <testcase classname="Homepage Test Suite" name="Search functionality: Moto G8 Plus" time="0">
+   <skipped message="Temporarily disabled with xit" />
+  </testcase>
+  <testcase classname="Homepage Test Suite" name="Inmuebles functionality from Categorias" time="8.667" />
   <testcase classname="Homepage Test Suite" name="Ingresa functionality" time="0.001">
    <skipped message="Temporarily disabled with xit" />
   </testcase>

@@ -10,6 +10,7 @@ class ingresaPage extends basePage {
     }
 
     setUsername(user) {
+        console.log(user)
         return this.userInput.sendKeys(user)
     }
 

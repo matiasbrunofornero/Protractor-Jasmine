@@ -26,7 +26,7 @@ describe("Homepage Test Suite", function () {
         })
     }),
 
-        it("Inmuebles functionality from Categorias", function () {
+        xit("Inmuebles functionality from Categorias", function () {
             homePage.clickCategoriasLink()
             expect(homePage.categoriasMenu.getAttribute('hidden')).not.toEqual('hidden');
             homePage.goToCategory('Inmuebles')
@@ -45,7 +45,7 @@ describe("Homepage Test Suite", function () {
             expect(homePage.getSearch()).toEqual('');
         })
 
-    xit("Ingresa functionality", function () {
+    it("Ingresa functionality", function () {
         homePage.clickIngresaBtn()
         ingresaPage.setUsername('AUTOMATEDTESTING')
         ingresaPage.clickSubmit()

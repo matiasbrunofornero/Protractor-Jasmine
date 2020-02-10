@@ -1,24 +1,66 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites disabled="0" errors="0" failures="0" tests="7" time="8.684">
- <testsuite name="Homepage Test Suite" timestamp="2020-02-06T14:42:32" hostname="localhost" time="8.684" errors="0" tests="7" skipped="6" disabled="0" failures="0">
-  <testcase classname="Homepage Test Suite" name="Search functionality: iPhone XR" time="0.005">
+<testsuites disabled="0" errors="0" failures="1" tests="7" time="2.859">
+ <testsuite name="Homepage Test Suite" timestamp="2020-02-06T14:50:12" hostname="localhost" time="2.859" errors="0" tests="7" skipped="6" disabled="0" failures="1">
+  <testcase classname="Homepage Test Suite" name="Search functionality: iPhone XR" time="0.002">
    <skipped message="Temporarily disabled with xit" />
   </testcase>
-  <testcase classname="Homepage Test Suite" name="Search functionality: Samsung A50" time="0.001">
+  <testcase classname="Homepage Test Suite" name="Search functionality: Samsung A50" time="0.002">
    <skipped message="Temporarily disabled with xit" />
   </testcase>
   <testcase classname="Homepage Test Suite" name="Search functionality: Xiaomi 7A" time="0">
    <skipped message="Temporarily disabled with xit" />
   </testcase>
-  <testcase classname="Homepage Test Suite" name="Search functionality: Huawei P30" time="0.001">
+  <testcase classname="Homepage Test Suite" name="Search functionality: Huawei P30" time="0">
    <skipped message="Temporarily disabled with xit" />
   </testcase>
-  <testcase classname="Homepage Test Suite" name="Search functionality: Moto G8 Plus" time="0">
+  <testcase classname="Homepage Test Suite" name="Search functionality: Moto G8 Plus" time="0.002">
    <skipped message="Temporarily disabled with xit" />
   </testcase>
-  <testcase classname="Homepage Test Suite" name="Inmuebles functionality from Categorias" time="8.667" />
-  <testcase classname="Homepage Test Suite" name="Ingresa functionality" time="0.001">
+  <testcase classname="Homepage Test Suite" name="Inmuebles functionality from Categorias" time="0.002">
    <skipped message="Temporarily disabled with xit" />
+  </testcase>
+  <testcase classname="Homepage Test Suite" name="Ingresa functionality" time="2.843">
+   <failure type="exception" message="Failed: No element found using locator: By(xpath, //*[@id=&apos;nav-header-menu&apos;]/a[text()=&apos;Ingresá&apos;])"><![CDATA[NoSuchElementError: No element found using locator: By(xpath, //*[@id='nav-header-menu']/a[text()='Ingresá'])
+    at /usr/local/lib/node_modules/protractor/built/element.js:814:27
+    at ManagedPromise.invokeCallback_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:1376:14)
+    at TaskQueue.execute_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:3084:14)
+    at TaskQueue.executeNext_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:3067:27)
+    at /usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2927:27
+    at /usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:668:7
+    at processTicksAndRejections (internal/process/task_queues.js:85:5)Error
+    at ElementArrayFinder.applyAction_ (/usr/local/lib/node_modules/protractor/built/element.js:459:27)
+    at ElementArrayFinder.<computed> [as click] (/usr/local/lib/node_modules/protractor/built/element.js:91:29)
+    at ElementFinder.<computed> [as click] (/usr/local/lib/node_modules/protractor/built/element.js:831:22)
+    at homePage.clickIngresaBtn (/Users/matiasgit/Desktop/Protractor-Jasmine/pages/basePage.js:34:40)
+    at UserContext.<anonymous> (/Users/matiasgit/Desktop/Protractor-Jasmine/specs/homePage.spec.js:49:18)
+    at /usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:112:25
+    at new ManagedPromise (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:1077:7)
+    at ControlFlow.promise (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2505:12)
+    at schedulerExecute (/usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:95:18)
+    at TaskQueue.execute_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:3084:14)
+From: Task: Run it("Ingresa functionality") in control flow
+    at UserContext.<anonymous> (/usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:94:19)
+    at attempt (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4297:26)
+    at QueueRunner.run (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4217:20)
+    at QueueRunner.execute (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:909:35)
+    at Spec.execute (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:526:10)
+    at UserContext.fn (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:5340:37)
+    at attempt (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4297:26)
+    at QueueRunner.run (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4217:20)
+    at runNext (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4257:20)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (/Users/matiasgit/Desktop/Protractor-Jasmine/specs/homePage.spec.js:48:5)
+    at addSpecsToSuite (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1107:25)
+    at Env.describe (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1074:7)
+    at describe (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4399:18)
+    at Object.<anonymous> (/Users/matiasgit/Desktop/Protractor-Jasmine/specs/homePage.spec.js:10:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)]]>
+   </failure>
   </testcase>
  </testsuite>
 </testsuites>

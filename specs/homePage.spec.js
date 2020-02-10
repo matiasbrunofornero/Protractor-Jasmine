@@ -10,7 +10,7 @@ var inmueblesPage = require('../pages/inmueblesPage')
 describe("Homepage Test Suite", function () {
 
     using(objectDataProvider, function (data, description) {
-        xit("Search functionality: " + description, function () {
+        it("Search functionality: " + description, function () {
             const placeholder = mlData.searchboxPlaceholder
 
             expect(homePage.searchBox.isDisplayed()).toBe(true)
@@ -26,7 +26,7 @@ describe("Homepage Test Suite", function () {
         })
     }),
 
-        xit("Inmuebles functionality from Categorias", function () {
+        it("Inmuebles functionality from Categorias", function () {
             homePage.clickCategoriasLink()
             expect(homePage.categoriasMenu.getAttribute('hidden')).not.toEqual('hidden');
             homePage.goToCategory('Inmuebles')

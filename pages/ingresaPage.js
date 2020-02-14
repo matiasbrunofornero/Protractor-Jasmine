@@ -10,14 +10,15 @@ class ingresaPage extends basePage {
     }
 
     setUsername(user) {
-        console.log(user)
-        return this.userInput.sendKeys(user)
+        this.userInput.sendKeys(user)
+        return this.clickSubmit()
     }
 
     setPassword(pwd) {
         var until = protractor.ExpectedConditions
         browser.wait(until.presenceOf(this.pwdInput), 5000)
-        return this.pwdInput.sendKeys(pwd)
+        this.pwdInput.sendKeys(pwd)
+        this.clickSubmit()
     }
 
     clickSubmit() {

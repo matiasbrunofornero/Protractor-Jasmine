@@ -17,18 +17,7 @@ describe("Homepage Test Suite", function () {
     })
 
     using(people, function (data, description) {
-        it("Follow and Unfollow'" + description + "' Page", function () {
-
-            // expect(homePage.searchBox.isDisplayed()).toBe(true)
-            // expect(homePage.searchBox.getAttribute('placeholder')).toEqual(placeholder);
-            // homePage.setSearch(data.text)
-            // homePage.clickSearch()
-
-            // expect(resultsPage.breadcrumbTitle.isDisplayed()).toBe(true)
-            // expect(resultsPage.breadcrumbTitle.getText()).toEqual(data.text.toLowerCase());
-
-            // homePage.clearSearch()
-            // expect(homePage.getSearch()).toEqual('');
+        it("Follow and Unfollow '" + description + "' Page", function () {
 
             if (data.text == 'FC Barcelona') {
                 homePage.clearSearch()
@@ -38,27 +27,31 @@ describe("Homepage Test Suite", function () {
             resultsPage.clickPeople()
 
             resultsPage.clickVerifiedAccount()
-
             profilePage.followUnfollow('Follow')
 
+            expect(profilePage.followBtn.getText()).toEqual('Following')
 
-            // homePage.clearSearch()
+            profilePage.followUnfollow('Following')
+            expect(profilePage.unfollowPopup.isDisplayed()).toBe(true)
+            profilePage.confirmUnfollow()
 
-            // resultsPage.clickPeople()
+            expect(profilePage.followBtn.getText()).toEqual('Follow')
 
+            profilePage.clickHome()
+            expect(profilePage.homePageIsDisplayed()).toBe(true)
         })
     })
 
-    // it("Tweet about something funny that happened recently", function () {
-    //     //Delete tweets before each functionality 
+    it("Tweet about something funny that happened recently", function () {
+        //Delete tweets before each functionality 
 
-    //     var random = homePage.newTweet().setTweet()
-    //     homePage.sendTweet()
+        var random = homePage.newTweet().setTweet()
+        homePage.sendTweet()
 
-    //     homePage.goToProfile()
-    //     var tweet = profilePage.getTweet()
-    //     expect(tweet.getText()).toEqual(tweets[['e' + [random]]])
-    // })
+        homePage.goToProfile()
+        var tweet = profilePage.getTweet()
+        expect(tweet.getText()).toEqual(tweets[['e' + [random]]])
+    })
 
 
     // using(citiesData, function (data, description) {
@@ -82,10 +75,21 @@ describe("Homepage Test Suite", function () {
     //     })
     // }),
 
-    // it("Ingresa functionality", function () {
+    // it("BACKUP DATA", function () {
     //     homePage.clickIngresaBtn()
     //     ingresaPage.setUsername('AUTOMATEDTESTING')
     //     ingresaPage.clickSubmit()
     //     ingresaPage.setPassword('asdasd')
+
+    // expect(homePage.searchBox.isDisplayed()).toBe(true)
+    // expect(homePage.searchBox.getAttribute('placeholder')).toEqual(placeholder);
+    // homePage.setSearch(data.text)
+    // homePage.clickSearch()
+
+    // expect(resultsPage.breadcrumbTitle.isDisplayed()).toBe(true)
+    // expect(resultsPage.breadcrumbTitle.getText()).toEqual(data.text.toLowerCase());
+
+    // homePage.clearSearch()
+    // expect(homePage.getSearch()).toEqual('');
     // })
 })

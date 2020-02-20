@@ -1,5 +1,7 @@
 module.exports = class BasePage {
         constructor() {
+
+                this.homeTabBar = element(by.css(`[data-testid='AppTabBar_Home_Link']`))
                 // this.creaTuCuentaBtn = element(by.xpath(`//*[@id='nav-header-menu']/a[text()='Creá tu cuenta']`))
                 // this.ingresaBtn = element(by.xpath(`//*[@id='nav-header-menu']/a[text()='Ingresá']`))
                 // this.misComprasBtn = element(by.xpath(`//*[@id='nav-header-menu']/a[text()='Mis compras']`))
@@ -17,6 +19,16 @@ module.exports = class BasePage {
         waitToPresenceOf(element) {
                 var until = protractor.ExpectedConditions
                 browser.wait(until.presenceOf(element), 5000)
+        }
+
+
+        clickHome() {
+                return this.homeTabBar.click()
+        }
+
+        homePageIsDisplayed() {
+                var EC = protractor.ExpectedConditions;
+                return browser.wait(EC.urlContains('/home'), 2000);
         }
 
         // clickCategoriasLink() {

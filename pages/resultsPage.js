@@ -14,7 +14,6 @@ class resultsPage extends basePage {
     var until = protractor.ExpectedConditions
     browser.wait(until.presenceOf(this.peopleTab), 5000)
     
-    browser.debugger()
     return this.peopleTab.click()
   }
 

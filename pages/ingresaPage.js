@@ -4,26 +4,29 @@ const homePage = require('./homePage')
 class ingresaPage extends basePage {
     constructor() {
         super()
-        this.userInput = element(by.id('user_id'))
-        this.pwdInput = element(by.id('password'))
-        this.submitBtn = element(by.css('button[type="submit"]'))
+        this.userInput = element(by.css('.r-1j3t67a.r-1w50u8q:nth-of-type(1) input'))
+        this.pwdInput = element(by.css('.r-1j3t67a.r-1w50u8q:nth-of-type(2) input'))
+        this.logInBtn = element(by.xpath(`//div[contains(@class, 'r-417010')]//span[text()='Log in']`))
+        this.draft = element(by.className(`DraftEditor-root`))
+        
     }
 
     setUsername(user) {
-        this.userInput.sendKeys(user)
-        return this.clickSubmit()
+        var until = protractor.ExpectedConditions
+        browser.wait(until.presenceOf(this.userInput), 5000)
+        return this.userInput.sendKeys(user)
     }
 
     setPassword(pwd) {
-        var until = protractor.ExpectedConditions
-        browser.wait(until.presenceOf(this.pwdInput), 5000)
         this.pwdInput.sendKeys(pwd)
-        this.clickSubmit()
+        return this.clickLogIn()
     }
 
-    clickSubmit() {
-        this.submitBtn.click()
-        return homePage
+    clickLogIn() {
+        this.logInBtn.click()
+        var until = protractor.ExpectedConditions
+        browser.wait(until.presenceOf(this.draft), 200000)
+        return this
     }
 }
 

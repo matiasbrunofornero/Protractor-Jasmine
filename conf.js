@@ -15,7 +15,7 @@ exports.config = {
         browser.ignoreSynchronization = true;
         // maximize browser
         browser.driver.manage().window().maximize();
-        browser.get('https://www.mercadolibre.com.ar/');
+        browser.get('https://twitter.com/');
         //Jasmine set initialization
         const environment = jasmine.getEnv();
         // Reports config

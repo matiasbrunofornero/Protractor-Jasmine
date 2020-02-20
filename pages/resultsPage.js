@@ -5,7 +5,7 @@ class resultsPage extends basePage {
     super()
     this.peopleTab = element(by.css(`[role='navigation'] > [role='tablist'] > [role='presentation']:nth-of-type(3) span`))
     // this.verifiedFollow = element(by.xpath(`//*[contains(@class, 'r-9cviqr')]/../../../../../..//span[text()='Follow']`))
-    this.verifiedAccount = element(by.xpath(`//*[contains(@class, 'r-9cviqr')]/../../../parent::a`))
+    this.verifiedAccount = element(by.xpath(`(//*[contains(@data-testid, 'primaryColumn')]//*[contains(@aria-label, 'Verified account')]/../../../parent::a)`))
     this.clearBtn = element(by.css(`.r-5soawk`))
     this.loadedPage = element(by.css(`[data-testid='primaryColumn'] [role='region']`))
   }

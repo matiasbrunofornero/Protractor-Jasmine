@@ -10,7 +10,7 @@ class profilePage extends basePage {
     }
 
     followUnfollow(act) {
-        var el = element(by.xpath(`//div[contains(@data-testid, 'primaryColumn')]//span[text()='${act}']`))
+        var el = element(by.xpath(`//div[contains(@data-testid, 'placementTracking')]//span[text()='${act}']`))
         var until = protractor.ExpectedConditions
         browser.wait(until.presenceOf(el), 5000)
 
@@ -20,12 +20,16 @@ class profilePage extends basePage {
     getTweet() {
         var until = protractor.ExpectedConditions
         browser.wait(until.presenceOf(this.tweets), 10000)
-       return this.tweets.first()
+        return this.tweets.first()
     }
 
     confirmUnfollow() {
         var el = this.unfollowPopup.element(by.xpath(`//span[text()='Unfollow']`))
-        return el.click()
+        var btn = element(by.css(`.r-15d164r.r-bcqeeo`))
+        var until = protractor.ExpectedConditions
+
+        el.click()
+        return browser.wait(until.presenceOf(btn), 2000)
     }
 }
 

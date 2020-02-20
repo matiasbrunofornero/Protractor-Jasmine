@@ -19,10 +19,6 @@ describe("Homepage Test Suite", function () {
     using(people, function (data, description) {
         it("Follow and Unfollow '" + description + "' Page", function () {
 
-            if (data.text == 'FC Barcelona') {
-                homePage.clearSearch()
-            }
-
             homePage.setSearch(data.text)
             resultsPage.clickPeople()
 

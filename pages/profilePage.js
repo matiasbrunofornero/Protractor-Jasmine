@@ -3,8 +3,7 @@ const basePage = require('./basePage')
 class profilePage extends basePage {
     constructor() {
         super()
-        this.tweets = element.all(by.css(`.r-bnwqim > span:nth-of-type(1)`))
-        // this.followBtn = element(by.xpath(`//div[contains(@data-testid, 'primaryColumn')]//span[text()='Follow']`))
+        this.tweets = element.all(by.xpath(`//div[contains(@data-testid, 'tweet')]`))
         this.followBtn = element(by.css(`[data-testid='placementTracking'] span:not(.css-bfa6kz)`))
         this.unfollowPopup = element(by.css(`.r-1sxzll1`))
     }
@@ -17,10 +16,18 @@ class profilePage extends basePage {
         return el.click()
     }
 
-    getTweet() {
+    getLastTweet() {
+        var txt = this.tweets.first().element(by.xpath(`//div[contains(@class, 'r-bnwqim')]`))
         var until = protractor.ExpectedConditions
-        browser.wait(until.presenceOf(this.tweets), 10000)
-        return this.tweets.first()
+        browser.wait(until.presenceOf(txt), 2000)
+        return txt
+    }
+
+    openMoreMenu() {
+        var moreBtn = this.tweets.element(by.xpath(`//div[contains(@data-testid, 'caret')]`))
+        var until = protractor.ExpectedConditions
+        browser.wait(until.presenceOf(moreBtn), 2000)
+        return moreBtn.first.click()
     }
 
     confirmUnfollow() {

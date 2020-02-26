@@ -7,10 +7,12 @@ class homePage extends basePage {
 		this.logInBtn = element(by.css(`[data-testid="loginButton"]`))
 		this.profileBtn = element(by.xpath(`//span[text()='Profile']`))
 		this.sidebarTweet = element(by.css(`[data-testid='SideNav_NewTweet_Button']`))
-		this.tweetTextArea = element(by.css(`[data-testid="tweetTextarea_0"]`))
+		this.tweetTextArea = element(by.css(`[aria-labelledby='modal-header'] [data-testid='tweetTextarea_0']`))
 		this.tweetBtn = element(by.css(`[data-testid='tweetButton']`))
+		this.progressBar = element(by.css(`[aria-labelledby='modal-header'] [role='progressbar'].r-1as3g83`))
 		this.searchInput = element(by.css(`[data-testid='SearchBox_Search_Input']`))
 		this.clearBtn = element(by.css(`.r-5soawk`))
+		this.sentAlert = element(by.css(`[data-testid='toast']`))
 	}
 
 	clickLogIn() {
@@ -38,7 +40,9 @@ class homePage extends basePage {
 	}
 
 	sendTweet() {
-		return this.tweetBtn.click()
+		this.tweetBtn.click()
+		var until = protractor.ExpectedConditions
+		return browser.wait(until.invisibilityOf(this.progressBar), 5000)
 	}
 
 	goToProfile() {

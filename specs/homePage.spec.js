@@ -17,7 +17,7 @@ describe("Homepage Test Suite", function () {
     })
 
     using(people, function (data, description) {
-        it("Follow and Unfollow '" + description + "' Page", function () {
+        xit("Follow and Unfollow '" + description + "' Page", function () {
 
             homePage.setSearch(data.text)
             resultsPage.clickPeople()
@@ -39,14 +39,16 @@ describe("Homepage Test Suite", function () {
     })
 
     it("Tweet about something funny that happened recently", function () {
-        //Delete tweets before each functionality 
-
         var random = homePage.newTweet().setTweet()
         homePage.sendTweet()
+        expect(homePage.sentAlert.isDisplayed()).toBe(true)
 
         homePage.goToProfile()
-        var tweet = profilePage.getTweet()
+        var tweet = profilePage.getLastTweet()
         expect(tweet.getText()).toEqual(tweets[['e' + [random]]])
+
+        //Delete tweets before each functionality 
+        // profilePage.openMoreMenu()
     })
 
     // using(citiesData, function (data, description) {

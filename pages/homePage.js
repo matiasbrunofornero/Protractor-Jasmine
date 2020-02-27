@@ -12,7 +12,7 @@ class homePage extends basePage {
 		this.progressBar = element(by.css(`[aria-labelledby='modal-header'] [role='progressbar'].r-1as3g83`))
 		this.searchInput = element(by.css(`[data-testid='SearchBox_Search_Input']`))
 		this.clearBtn = element(by.css(`.r-5soawk`))
-		this.sentAlert = element(by.css(`[data-testid='toast']`))
+		this.confirmationAlert = element(by.css(`[data-testid='toast']`))
 	}
 
 	clickLogIn() {

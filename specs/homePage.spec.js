@@ -41,52 +41,19 @@ describe("Homepage Test Suite", function () {
     it("Tweet about something funny that happened recently", function () {
         var random = homePage.newTweet().setTweet()
         homePage.sendTweet()
-        expect(homePage.sentAlert.isDisplayed()).toBe(true)
+        expect(homePage.confirmationAlert.isDisplayed()).toBe(true)
 
         homePage.goToProfile()
         var tweet = profilePage.getLastTweet()
         expect(tweet.getText()).toEqual(tweets[['e' + [random]]])
 
-        //Delete tweets before each functionality 
-        // profilePage.openMoreMenu()
+        profilePage.openMoreMenu()
+        expect(profilePage.moreMenu.isDisplayed()).toBe(true)
+        profilePage.selectOption('Delete')
+        expect(profilePage.deletePopup.isDisplayed()).toBe(true)
+
+        profilePage.deleteTweet()
+        expect(tweet.getText()).not.toEqual(tweets[['e' + [random]]])
     })
 
-    // using(citiesData, function (data, description) {
-    //     it("Search '" + description + "' from Inmuebles", function () {
-    //         homePage.clickCategoriasLink()
-    //         expect(homePage.categoriasMenu.getAttribute('hidden')).not.toEqual('hidden');
-    //         homePage.goToCategory('Inmuebles')
-
-    //         inmueblesPage.selectOperation('Alquiler')
-    //         inmueblesPage.selectCategory('PH')
-    //         inmueblesPage.setCity(data.text)
-
-    //         inmueblesPage.clickSearch()
-
-    //         resultsPage.waitToPresenceOf(resultsPage.breadcrumbTitle)
-    //         expect(resultsPage.breadcrumbTitle.isDisplayed()).toBe(true)
-    //         expect(resultsPage.breadcrumbTitle.getText()).toEqual(data.text.toLowerCase());
-
-    //         homePage.clearSearch()
-    //         expect(homePage.getSearch()).toEqual('');
-    //     })
-    // }),
-
-    //     it("BACKUP DATA", function () {
-    //         homePage.clickIngresaBtn()
-    //         ingresaPage.setUsername('AUTOMATEDTESTING')
-    //         ingresaPage.clickSubmit()
-    //         ingresaPage.setPassword('asdasd')
-
-    //         expect(homePage.searchBox.isDisplayed()).toBe(true)
-    //         expect(homePage.searchBox.getAttribute('placeholder')).toEqual(placeholder);
-    //         homePage.setSearch(data.text)
-    //         homePage.clickSearch()
-
-    //         expect(resultsPage.breadcrumbTitle.isDisplayed()).toBe(true)
-    //         expect(resultsPage.breadcrumbTitle.getText()).toEqual(data.text.toLowerCase());
-
-    //         homePage.clearSearch()
-    //         expect(homePage.getSearch()).toEqual('');
-    //     })
 })

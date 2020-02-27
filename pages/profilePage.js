@@ -6,6 +6,8 @@ class profilePage extends basePage {
         this.tweets = element.all(by.xpath(`//div[contains(@data-testid, 'tweet')]`))
         this.followBtn = element(by.css(`[data-testid='placementTracking'] span:not(.css-bfa6kz)`))
         this.unfollowPopup = element(by.css(`.r-1sxzll1`))
+        this.moreMenu = element(by.xpath(`//div[@role='menu']`))
+        this.deletePopup = element(by.css(`.r-1ye8kvj.r-1rnoaur.r-d9fdf6`))
     }
 
     followUnfollow(act) {
@@ -24,10 +26,22 @@ class profilePage extends basePage {
     }
 
     openMoreMenu() {
-        var moreBtn = this.tweets.element(by.xpath(`//div[contains(@data-testid, 'caret')]`))
+        var moreBtn = this.tweets.first().element(by.xpath(`//div[contains(@data-testid, 'caret')]`))
         var until = protractor.ExpectedConditions
         browser.wait(until.presenceOf(moreBtn), 2000)
-        return moreBtn.first.click()
+        return moreBtn.click()
+    }
+
+    deleteTweet() {
+        var until = protractor.ExpectedConditions
+        var deleteBtn = this.tweets.first().element(by.xpath(`//div[@role='button']//span[text()='Delete']`))
+        deleteBtn.click()
+        return browser.wait(until.invisibilityOf(element(by.xpath(`//span[text()='Your Tweet was deleted']`))), 6000)
+    }
+
+    selectOption(opt) {
+        var opt = element(by.xpath(`//div[@role='menuitem']//span[text()='${opt}']`))
+        return opt.click()
     }
 
     confirmUnfollow() {

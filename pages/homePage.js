@@ -5,6 +5,7 @@ class homePage extends basePage {
 	constructor() {
 		super()
 		this.logInBtn = element(by.css(`[data-testid="loginButton"]`))
+		this.messagesBtn = element(by.xpath(`//span[text()='Messages']`))
 		this.profileBtn = element(by.xpath(`//span[text()='Profile']`))
 		this.sidebarTweet = element(by.css(`[data-testid='SideNav_NewTweet_Button']`))
 		this.tweetTextArea = element(by.css(`[aria-labelledby='modal-header'] [data-testid='tweetTextarea_0']`))
@@ -43,6 +44,10 @@ class homePage extends basePage {
 		this.tweetBtn.click()
 		var until = protractor.ExpectedConditions
 		return browser.wait(until.invisibilityOf(this.progressBar), 5000)
+	}
+
+	goToMessages() {
+		return this.messagesBtn.click()
 	}
 
 	goToProfile() {

@@ -3,7 +3,7 @@ const basePage = require('./basePage')
 class profilePage extends basePage {
     constructor() {
         super()
-        this.tweets = element.all(by.xpath(`//div[contains(@data-testid, 'tweet')]`))
+        this.tweets = element.all(by.xpath(`//div[@data-testid='tweet']`))
         this.followBtn = element(by.css(`[data-testid='placementTracking'] span:not(.css-bfa6kz)`))
         this.unfollowPopup = element(by.css(`.r-1sxzll1`))
         this.moreMenu = element(by.xpath(`//div[@role='menu']`))

@@ -6,16 +6,29 @@ class messagesPage extends basePage {
         this.newMsgBtn = element(by.xpath(`//span[text()='New message']`))
         this.msgPopup = element(by.css(`[aria-labelledby='modal-header']`))
         this.msgInput = element(by.css(`[data-testid='dmComposerTextInput']`))
+        this.sendBtn = element(by.css(`[data-testid='dmComposerSendButton']`))
+        this.lastMessage = element(by.css(`[data-testid='conversation'] .r-bnwqim > span`))
     }
 
     clickNewMessage() {
         return this.newMsgBtn.click()
     }
 
-    setMessage() {
+    setMessage(string) {
         var until = protractor.ExpectedConditions
-        browser.wait(until.presenceOf(this.msgInput), 5000)
-        return this.msgInput.sendKeys('asldkjadjqwioeuqioeuoqiuweoiuqowieu918u39182739817293719823798123719823iashdkahjdkahskjd')
+        browser.wait(until.presenceOf(this.msgInput), 1000)
+        return this.msgInput.sendKeys(string)
+    }
+
+    sendMessage() {
+        return this.sendBtn.click()
+    }
+
+    getLatestMessage(msg) {
+        var until = protractor.ExpectedConditions
+        var el = element(by.xpath(`//div[@data-testid='conversation']//span[text()='${msg}']`))
+        browser.wait(until.presenceOf(el), 4000)
+        return el
     }
 }
 

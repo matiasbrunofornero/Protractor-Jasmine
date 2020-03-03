@@ -60,6 +60,9 @@ describe("Homepage Test Suite", function () {
 
     it("Send a message by day is important!", function () {
         var user = 'MatBF2'
+        var msg = 'Automated Message #'
+        var ran = Math.floor((Math.random() * 100000) + 1)
+
         homePage.goToMessages()
         expect(browser.getCurrentUrl()).toEqual("https://twitter.com/messages")
 
@@ -71,10 +74,11 @@ describe("Homepage Test Suite", function () {
         expect(msgPopup.nextBtn.getAttribute('aria-disabled')).toEqual('true')
 
         msgPopup.selectUser()
-        // expect(msgPopup.nextBtn.isEnabled()).toBe(true)
+        expect(msgPopup.nextBtn.isEnabled()).toBe(true)
 
-        // msgPopup.clickNext()
-        // messagesPage.setMessage()
+        msgPopup.clickNext()
+        messagesPage.setMessage(msg + ran)
+        messagesPage.sendMessage()
+        expect(messagesPage.getLatestMessage(msg + ran).isDisplayed()).toBe(true)
     })
-
 })

@@ -8,6 +8,7 @@ class profilePage extends basePage {
         this.unfollowPopup = element(by.css(`.r-1sxzll1`))
         this.moreMenu = element(by.xpath(`//div[@role='menu']`))
         this.deletePopup = element(by.css(`.r-1ye8kvj.r-1rnoaur.r-d9fdf6`))
+        this.following = element(by.xpath(`//span[text()='Following']`))
     }
 
     followUnfollow(act) {
@@ -51,6 +52,14 @@ class profilePage extends basePage {
 
         el.click()
         return browser.wait(until.presenceOf(btn), 2000)
+    }
+
+    goToFollowing() {
+        var until = protractor.ExpectedConditions
+        browser.wait(until.presenceOf(this.following), 5000)
+        this.following.click()
+        browser.sleep(1000)
+        return this
     }
 }
 

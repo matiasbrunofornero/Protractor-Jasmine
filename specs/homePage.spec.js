@@ -8,6 +8,8 @@ var ingresaPage = require('../pages/ingresaPage')
 var profilePage = require('../pages/profilePage')
 var resultsPage = require('../pages/resultsPage')
 var messagesPage = require('../pages/messagesPage')
+var followingPage = require('../pages/followingPage')
+
 var msgPopup = require('../pages/components/msgPopup')
 
 describe("Homepage Test Suite", function () {
@@ -20,7 +22,6 @@ describe("Homepage Test Suite", function () {
 
     using(people, function (data, description) {
         xit("Follow and Unfollow '" + description + "' Page", function () {
-
             homePage.setSearch(data.text)
             resultsPage.clickPeople()
 
@@ -38,6 +39,26 @@ describe("Homepage Test Suite", function () {
             profilePage.clickHome()
             expect(profilePage.homePageIsDisplayed()).toBe(true)
         })
+    })
+
+    it("Hey, try to follow your favorite artist!", function () {
+        var user = 'Gustavo Cerati'
+        homePage.setSearch(user)
+        resultsPage.clickPeople()
+
+        resultsPage.clickVerifiedAccount()
+        profilePage.followUnfollow('Follow')
+
+        homePage.goToProfile()
+        profilePage.goToFollowing()
+
+        expect(followingPage.followingTab.getAttribute('aria-selected')).toEqual('true')
+        expect(followingPage.getFollowedUser(user).isDisplayed()).toBe(true)
+
+        followingPage.unfollow(user)
+        expect(followingPage.alertDialog.isDisplayed()).toBe(true)
+
+        followingPage.confirmUnfollow()
     })
 
     xit("Tweet about something funny that happened recently", function () {
@@ -58,7 +79,7 @@ describe("Homepage Test Suite", function () {
         expect(tweet.getText()).not.toEqual(tweets[['e' + [random]]])
     })
 
-    it("Send a message by day is important!", function () {
+    xit("Send a message by day is important!", function () {
         var user = 'MatBF2'
         var msg = 'Automated Message #'
         var ran = Math.floor((Math.random() * 100000) + 1)

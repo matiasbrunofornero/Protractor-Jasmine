@@ -27,7 +27,7 @@ class messagesPage extends basePage {
     getLatestMessage(msg) {
         var until = protractor.ExpectedConditions
         var el = element(by.xpath(`//div[@data-testid='conversation']//span[text()='${msg}']`))
-        browser.wait(until.presenceOf(el), 4000)
+        browser.wait(until.presenceOf(el), 10000)
         return el
     }
 }

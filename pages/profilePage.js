@@ -3,12 +3,19 @@ const basePage = require('./basePage')
 class profilePage extends basePage {
     constructor() {
         super()
+        this.title = element(by.css(`.r-15d164r.r-1g94qm0 span > span`))
         this.tweets = element.all(by.xpath(`//div[@data-testid='tweet']`))
         this.followBtn = element(by.css(`[data-testid='placementTracking'] span:not(.css-bfa6kz)`))
         this.unfollowPopup = element(by.css(`.r-1sxzll1`))
         this.moreMenu = element(by.xpath(`//div[@role='menu']`))
         this.deletePopup = element(by.css(`.r-1ye8kvj.r-1rnoaur.r-d9fdf6`))
         this.following = element(by.xpath(`//span[text()='Following']`))
+    }
+
+    getProfileTitle() {
+        var until = protractor.ExpectedConditions
+        browser.wait(until.presenceOf(this.title), 5000)
+        return this.title
     }
 
     followUnfollow(act) {

@@ -21,32 +21,30 @@ describe("Homepage Test Suite", function () {
     })
 
     using(people, function (data, description) {
-        xit("Follow and Unfollow '" + description + "' Page", function () {
+        it("Search and go to '" + description + "' profile", function () {
             homePage.setSearch(data.text)
             resultsPage.clickPeople()
 
             resultsPage.clickVerifiedAccount()
-            profilePage.followUnfollow('Follow')
 
-            expect(profilePage.followBtn.getText()).toEqual('Following')
-
-            profilePage.followUnfollow('Following')
-            expect(profilePage.unfollowPopup.isDisplayed()).toBe(true)
-            profilePage.confirmUnfollow()
-
-            expect(profilePage.followBtn.getText()).toEqual('Follow')
+            expect(profilePage.getProfileTitle().getText()).toEqual(data.text)
 
             profilePage.clickHome()
             expect(profilePage.homePageIsDisplayed()).toBe(true)
+
+            browser.sleep(1000)
         })
     })
 
-    it("Hey, try to follow your favorite artist!", function () {
+    it("Hey, try to follow (and unfollow) your favorite artist!", function () {
         var user = 'Gustavo Cerati'
         homePage.setSearch(user)
         resultsPage.clickPeople()
 
         resultsPage.clickVerifiedAccount()
+
+        // WIP if button text is 'following' do unfollow
+
         profilePage.followUnfollow('Follow')
 
         homePage.goToProfile()
@@ -59,9 +57,14 @@ describe("Homepage Test Suite", function () {
         expect(followingPage.alertDialog.isDisplayed()).toBe(true)
 
         followingPage.confirmUnfollow()
+
+        profilePage.clickHome()
+        expect(profilePage.homePageIsDisplayed()).toBe(true)
+
+        browser.sleep(3000)
     })
 
-    xit("Tweet about something funny that happened recently", function () {
+    it("Tweet about something funny that happened recently", function () {
         var random = homePage.newTweet().setTweet()
         homePage.sendTweet()
         expect(homePage.confirmationAlert.isDisplayed()).toBe(true)
@@ -79,7 +82,7 @@ describe("Homepage Test Suite", function () {
         expect(tweet.getText()).not.toEqual(tweets[['e' + [random]]])
     })
 
-    xit("Send a message by day is important!", function () {
+    it("Send a message by day is important!", function () {
         var user = 'MatBF2'
         var msg = 'Automated Message #'
         var ran = Math.floor((Math.random() * 100000) + 1)

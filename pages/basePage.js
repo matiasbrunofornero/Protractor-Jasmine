@@ -1,6 +1,3 @@
 module.exports = class BasePage {
-    constructor() {
-    }
+    constructor() { }
 }
-
-module.exports = new BasePage()

@@ -65,7 +65,7 @@ describe("Homepage Test Suite", function () {
         browser.sleep(3000)
     })
 
-    it("Tweet about something funny that happened recently", function () {
+    xit("Tweet about something funny that happened recently", function () {
         var random = homePage.newTweet().setTweet()
         homePage.sendTweet()
         expect(homePage.confirmationAlert.isDisplayed()).toBe(true)

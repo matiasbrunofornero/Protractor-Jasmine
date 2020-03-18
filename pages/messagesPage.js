@@ -16,7 +16,7 @@ class messagesPage extends basePage {
 
     setMessage(string) {
         var until = protractor.ExpectedConditions
-        browser.wait(until.presenceOf(this.msgInput), 1000)
+        browser.wait(until.presenceOf(this.msgInput), 100000)
         return this.msgInput.sendKeys(string)
     }
 

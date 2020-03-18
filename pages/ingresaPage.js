@@ -1,5 +1,4 @@
 const basePage = require('./basePage')
-const homePage = require('./homePage')
 
 class ingresaPage extends basePage {
     constructor() {
@@ -8,7 +7,6 @@ class ingresaPage extends basePage {
         this.pwdInput = element(by.css('.r-1j3t67a.r-1w50u8q:nth-of-type(2) input'))
         this.logInBtn = element(by.xpath(`//div[contains(@class, 'r-417010')]//span[text()='Log in']`))
         this.draft = element(by.className(`DraftEditor-root`))
-        
     }
 
     setUsername(user) {

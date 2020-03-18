@@ -10,6 +10,7 @@ var resultsPage = require('../pages/resultsPage')
 var messagesPage = require('../pages/messagesPage')
 var followingPage = require('../pages/followingPage')
 
+var sidebar = require('../pages/components/sidebar')
 var msgPopup = require('../pages/components/msgPopup')
 
 describe("Homepage Test Suite", function () {
@@ -29,8 +30,8 @@ describe("Homepage Test Suite", function () {
 
             expect(profilePage.getProfileTitle().getText()).toEqual(data.text)
 
-            profilePage.clickHome()
-            expect(profilePage.homePageIsDisplayed()).toBe(true)
+            sidebar.clickHome()
+            expect(homePage.homePageIsDisplayed()).toBe(true)
 
             browser.sleep(1000)
         })
@@ -47,7 +48,7 @@ describe("Homepage Test Suite", function () {
 
         profilePage.followUnfollow('Follow')
 
-        homePage.goToProfile()
+        sidebar.clickProfile()
         profilePage.goToFollowing()
 
         expect(followingPage.followingTab.getAttribute('aria-selected')).toEqual('true')
@@ -58,8 +59,8 @@ describe("Homepage Test Suite", function () {
 
         followingPage.confirmUnfollow()
 
-        profilePage.clickHome()
-        expect(profilePage.homePageIsDisplayed()).toBe(true)
+        sidebar.clickHome()
+        expect(homePage.homePageIsDisplayed()).toBe(true)
 
         browser.sleep(3000)
     })
@@ -69,7 +70,7 @@ describe("Homepage Test Suite", function () {
         homePage.sendTweet()
         expect(homePage.confirmationAlert.isDisplayed()).toBe(true)
 
-        homePage.goToProfile()
+        sidebar.clickProfile()
         var tweet = profilePage.getLastTweet()
         expect(tweet.getText()).toEqual(tweets[['e' + [random]]])
 
@@ -87,7 +88,7 @@ describe("Homepage Test Suite", function () {
         var msg = 'Automated Message #'
         var ran = Math.floor((Math.random() * 100000) + 1)
 
-        homePage.goToMessages()
+        sidebar.clickMessages()
         expect(browser.getCurrentUrl()).toEqual("https://twitter.com/messages")
 
         messagesPage.clickNewMessage()

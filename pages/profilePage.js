@@ -65,7 +65,7 @@ class profilePage extends basePage {
         var until = protractor.ExpectedConditions
         browser.wait(until.presenceOf(this.following), 5000)
         this.following.click()
-        browser.sleep(1000)
+        browser.sleep(3000)
         return this
     }
 }

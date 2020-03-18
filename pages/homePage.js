@@ -16,6 +16,11 @@ class homePage extends basePage {
 		this.confirmationAlert = element(by.css(`[data-testid='toast']`))
 	}
 
+	homePageIsDisplayed() {
+		var EC = protractor.ExpectedConditions;
+		return browser.wait(EC.urlContains('/home'), 2000);
+	}
+
 	clickLogIn() {
 		var until = protractor.ExpectedConditions
 		browser.wait(until.presenceOf(this.logInBtn), 5000)
@@ -44,14 +49,6 @@ class homePage extends basePage {
 		this.tweetBtn.click()
 		var until = protractor.ExpectedConditions
 		return browser.wait(until.invisibilityOf(this.progressBar), 5000)
-	}
-
-	goToMessages() {
-		return this.messagesBtn.click()
-	}
-
-	goToProfile() {
-		return this.profileBtn.click()
 	}
 
 	setSearch(search) {

@@ -9,6 +9,7 @@
   "author": "Matias Bruno",
   "license": "ISC",
   "dependencies": {
+    "appium": "^1.17.0",
     "jasmine": "^3.5.0",
     "jasmine-data-provider": "^2.2.0",
     "jasmine-reporters": "^2.3.2",

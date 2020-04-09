@@ -9,7 +9,6 @@ var profilePage = require('../pages/profilePage')
 var resultsPage = require('../pages/resultsPage')
 var messagesPage = require('../pages/messagesPage')
 var followingPage = require('../pages/followingPage')
-
 var sidebar = require('../pages/common/sidebar')
 var msgPopup = require('../pages/components/msgPopup')
 
